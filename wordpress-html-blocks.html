@@ -1,0 +1,377 @@
+<!--
+  ================================================
+   METKA Z KLASĄ — Gotowe bloki HTML dla WordPress
+  ================================================
+
+  JAK UŻYWAĆ:
+  - Elementor: przeciągnij widget "HTML" i wklej wybrany blok
+  - Gutenberg:  kliknij "+" → blok "Własny HTML" i wklej
+  - Flatsome:   użyj "UX Builder" → element "Code / HTML"
+
+  WYMAGANIA:
+  - Plik wordpress-custom.css musi być wczytany (Wygląd → Dostosuj → Dodatkowy CSS)
+  - Czcionki Google Fonts muszą być podlinkowane w <head>
+  ================================================
+-->
+
+
+<!-- ================================================
+     BLOK 1: SEKCJA HERO (pełnoekranowa)
+     Zamień "TWOJE-ZDJECIE.jpg" na URL swojego zdjęcia
+     ================================================ -->
+<section class="mkz-hero">
+  <img
+    class="mkz-hero-bg"
+    src="TWOJE-ZDJECIE.jpg"
+    alt="Kolekcja markowych ubrań"
+  >
+  <div class="mkz-hero-overlay"></div>
+
+  <div class="mkz-hero-content">
+    <span class="mkz-hero-eyebrow">Moda z drugiej ręki</span>
+
+    <h1>
+      Markowe ubrania.<br>
+      <em>Nowe życie.</em>
+    </h1>
+
+    <p>
+      Odkryj starannie wyselekcjonowaną kolekcję luksusowych
+      markowych ubrań z drugiej ręki. Autentyczność gwarantowana.
+    </p>
+
+    <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+      <a href="/kobiety" class="mkz-btn">Przeglądaj kolekcję</a>
+      <a href="/o-nas" class="mkz-btn mkz-btn-outline" style="color:#fdfaf7!important; border-color:rgba(253,250,247,0.4);">O nas</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================
+     BLOK 2: NAGŁÓWEK SEKCJI (etykieta + tytuł)
+     Użyj przed każdą sekcją
+     ================================================ -->
+<div class="mkz-section-header mkz-fade-in">
+  <span class="mkz-label">Przeglądaj</span>
+  <h2>Kategorie</h2>
+</div>
+
+
+<!-- ================================================
+     BLOK 3: ASYMETRYCZNA SIATKA KATEGORII
+     Zamień src="..." na swoje zdjęcia
+     Zamień href="..." na linki do kategorii WooCommerce
+     ================================================ -->
+<section class="mkz-section">
+  <div class="mkz-container">
+
+    <!-- Nagłówek grupy "Dla niej" -->
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:2.5rem;">
+      <div>
+        <span style="font-size:11px; letter-spacing:0.25em; text-transform:uppercase; color:var(--mkz-text-muted); display:block; margin-bottom:8px;">Kolekcja</span>
+        <a href="/product-category/kobiety" style="display:inline-flex; align-items:center; gap:12px; text-decoration:none;">
+          <h3 style="font-family:var(--mkz-font-display); font-size:clamp(26px,3vw,38px); font-weight:300; margin:0; color:var(--mkz-text);">Dla niej</h3>
+          <span style="color:var(--mkz-text-muted); font-size:20px;">→</span>
+        </a>
+      </div>
+      <a href="/product-category/kobiety" style="font-size:13px; color:var(--mkz-text-muted); text-decoration:underline; text-underline-offset:4px;">Zobacz wszystko</a>
+    </div>
+
+    <!-- Siatka kategorii -->
+    <div class="mkz-categories-grid">
+
+      <!-- Duże zdjęcie (sukienki) -->
+      <a href="/product-category/sukienki" class="mkz-cat-item mkz-cat-large mkz-fade-in">
+        <img src="ZDJECIE-SUKIENKI.jpg" alt="Sukienki">
+        <div class="mkz-cat-overlay"></div>
+        <div class="mkz-cat-text">
+          <span class="mkz-cat-count">240+ produktów</span>
+          <h4 class="mkz-cat-name">Sukienki</h4>
+        </div>
+      </a>
+
+      <!-- Średnie zdjęcie (okrycia) -->
+      <a href="/product-category/plaszcze" class="mkz-cat-item mkz-cat-medium mkz-fade-in">
+        <img src="ZDJECIE-PLASZCZE.jpg" alt="Okrycia wierzchnie">
+        <div class="mkz-cat-overlay"></div>
+        <div class="mkz-cat-text">
+          <span class="mkz-cat-count">180+ produktów</span>
+          <h4 class="mkz-cat-name" style="font-size:24px;">Okrycia wierzchnie</h4>
+        </div>
+      </a>
+
+      <!-- Małe zdjęcie (obuwie) -->
+      <a href="/product-category/obuwie-damskie" class="mkz-cat-item mkz-cat-small mkz-fade-in">
+        <img src="ZDJECIE-OBUWIE.jpg" alt="Obuwie">
+        <div class="mkz-cat-overlay"></div>
+        <div class="mkz-cat-text">
+          <span class="mkz-cat-count">320+</span>
+          <h4 class="mkz-cat-name" style="font-size:20px;">Obuwie</h4>
+        </div>
+      </a>
+
+      <!-- Bardzo małe (akcesoria) -->
+      <a href="/product-category/akcesoria-damskie" class="mkz-cat-item mkz-cat-xsmall mkz-fade-in">
+        <img src="ZDJECIE-AKCESORIA.jpg" alt="Akcesoria">
+        <div class="mkz-cat-overlay"></div>
+        <div class="mkz-cat-text">
+          <span class="mkz-cat-count">150+</span>
+          <h4 class="mkz-cat-name" style="font-size:18px;">Akcesoria</h4>
+        </div>
+      </a>
+
+    </div>
+    <!-- /siatka -->
+
+  </div>
+</section>
+
+
+<!-- ================================================
+     BLOK 4: WYRÓŻNIONE PRODUKTY
+     Ten blok wyświetla najnowsze produkty WooCommerce
+     Użyj ZAMIAST tego shortcode WooCommerce (łatwiej):
+     [recent_products limit="4" columns="4"]
+     LUB poniższy HTML jako wrapper ze swoim CSS
+     ================================================ -->
+<section class="mkz-section mkz-section-cream">
+  <div class="mkz-container">
+
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:3rem;">
+      <div>
+        <span class="mkz-label">Wyróżnione</span>
+        <h2 style="font-family:var(--mkz-font-display); font-size:clamp(32px,4vw,50px); font-weight:300; margin:0;">Nowości</h2>
+      </div>
+      <a href="/nowosci" style="font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:var(--mkz-text-muted); text-decoration:underline; text-underline-offset:4px; font-weight:500;">Zobacz wszystkie</a>
+    </div>
+
+    <!-- Shortcode WooCommerce — wyświetla 4 najnowsze produkty ze stylami z CSS -->
+    [recent_products limit="4" columns="4" orderby="date"]
+
+    <!--
+      ALTERNATYWA — ręczna siatka produktów (gdy nie używasz WooCommerce):
+      Skopiuj i powiel poniższy blok .mkz-product-card dla każdego produktu
+    -->
+    <!--
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem;">
+
+      <div class="mkz-product-card mkz-fade-in">
+        <a href="/produkt/max-mara-blazer">
+          <div style="overflow:hidden; border-radius:4px;">
+            <img class="mkz-product-img" src="ZDJECIE-PRODUKTU.jpg" alt="Max Mara Blazer">
+          </div>
+        </a>
+        <span class="mkz-product-brand">Max Mara</span>
+        <h3 style="font-family:var(--mkz-font-display); font-size:17px; font-weight:400; margin:4px 0; color:var(--mkz-text);">
+          <a href="/produkt/max-mara-blazer" style="text-decoration:none; color:inherit;">Blazer wełniany oversize</a>
+        </h3>
+        <div style="display:flex; align-items:center; gap:8px; margin-top:6px;">
+          <span class="mkz-product-price">890 zł</span>
+          <del style="color:var(--mkz-text-muted); font-size:13px;">1 200 zł</del>
+        </div>
+        <span class="mkz-condition mkz-condition-good" style="margin-top:8px;">Bardzo dobry</span>
+      </div>
+
+    </div>
+    -->
+
+  </div>
+</section>
+
+
+<!-- ================================================
+     BLOK 5: IKONY ZAUFANIA (4 cechy)
+     ================================================ -->
+<section class="mkz-section" style="padding:4rem 1.5rem; border-top:1px solid var(--mkz-border); border-bottom:1px solid var(--mkz-border);">
+  <div class="mkz-container">
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; text-align:center;">
+
+      <div class="mkz-fade-in">
+        <div style="font-size:28px; margin-bottom:16px;">✓</div>
+        <h4 style="font-family:var(--mkz-font-body); font-size:13px; font-weight:500; letter-spacing:0.05em; margin:0 0 8px;">Gwarancja autentyczności</h4>
+        <p style="font-size:13px; color:var(--mkz-text-muted); margin:0; line-height:1.6;">Każdy produkt przechodzi weryfikację przed wystawieniem.</p>
+      </div>
+
+      <div class="mkz-fade-in">
+        <div style="font-size:28px; margin-bottom:16px; color:var(--mkz-accent);">◈</div>
+        <h4 style="font-family:var(--mkz-font-body); font-size:13px; font-weight:500; letter-spacing:0.05em; margin:0 0 8px;">Staranna selekcja</h4>
+        <p style="font-size:13px; color:var(--mkz-text-muted); margin:0; line-height:1.6;">Tylko ubrania najwyższej jakości od sprawdzonych marek.</p>
+      </div>
+
+      <div class="mkz-fade-in">
+        <div style="font-size:28px; margin-bottom:16px;">↗</div>
+        <h4 style="font-family:var(--mkz-font-body); font-size:13px; font-weight:500; letter-spacing:0.05em; margin:0 0 8px;">Darmowa wysyłka</h4>
+        <p style="font-size:13px; color:var(--mkz-text-muted); margin:0; line-height:1.6;">Przy zakupach powyżej 299 zł wysyłka jest bezpłatna.</p>
+      </div>
+
+      <div class="mkz-fade-in">
+        <div style="font-size:28px; margin-bottom:16px;">↩</div>
+        <h4 style="font-family:var(--mkz-font-body); font-size:13px; font-weight:500; letter-spacing:0.05em; margin:0 0 8px;">14 dni na zwrot</h4>
+        <p style="font-size:13px; color:var(--mkz-text-muted); margin:0; line-height:1.6;">Pełny zwrot pieniędzy, bez pytań.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================
+     BLOK 6: SEKCJA "O NAS" / MISJA
+     ================================================ -->
+<section class="mkz-section mkz-section-dark">
+  <div class="mkz-container" style="max-width:900px; text-align:center;">
+
+    <span class="mkz-label" style="color:var(--mkz-accent);">Dlaczego my</span>
+
+    <h2 style="font-family:var(--mkz-font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:#fdfaf7; margin:0 0 1.5rem;">
+      Moda ze świadomością
+    </h2>
+
+    <p style="font-size:16px; color:rgba(253,250,247,0.65); font-weight:300; line-height:1.8; max-width:640px; margin:0 auto 2.5rem;">
+      Wierzymy, że luksusowa moda może być odpowiedzialna. Każdy zakup
+      w Metka z klasą to drugie życie wyjątkowego ubrania i krok ku
+      bardziej zrównoważonemu obiegowi mody premium.
+    </p>
+
+    <a href="/o-nas" class="mkz-btn" style="background-color:transparent; border-color:rgba(253,250,247,0.3); color:#fdfaf7!important;">
+      Poznaj naszą historię
+    </a>
+
+  </div>
+</section>
+
+
+<!-- ================================================
+     BLOK 7: MARKI (logo bar)
+     ================================================ -->
+<section style="padding:3rem 1.5rem; border-bottom:1px solid var(--mkz-border);">
+  <div class="mkz-container">
+
+    <p style="font-size:11px; letter-spacing:0.3em; text-transform:uppercase; color:var(--mkz-text-muted); text-align:center; margin-bottom:2.5rem;">Znajdziesz u nas m.in.</p>
+
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:2rem 4rem;">
+      <a href="/marka/max-mara" style="font-family:var(--mkz-font-display); font-size:18px; letter-spacing:0.15em; text-transform:uppercase; color:var(--mkz-text-muted); text-decoration:none; font-weight:300; transition:color 0.3s ease;" onmouseover="this.style.color='var(--mkz-text)'" onmouseout="this.style.color='var(--mkz-text-muted)'">Max Mara</a>
+      <a href="/marka/burberry" style="font-family:var(--mkz-font-display); font-size:18px; letter-spacing:0.15em; text-transform:uppercase; color:var(--mkz-text-muted); text-decoration:none; font-weight:300; transition:color 0.3s ease;" onmouseover="this.style.color='var(--mkz-text)'" onmouseout="this.style.color='var(--mkz-text-muted)'">Burberry</a>
+      <a href="/marka/gucci" style="font-family:var(--mkz-font-display); font-size:18px; letter-spacing:0.15em; text-transform:uppercase; color:var(--mkz-text-muted); text-decoration:none; font-weight:300; transition:color 0.3s ease;" onmouseover="this.style.color='var(--mkz-text)'" onmouseout="this.style.color='var(--mkz-text-muted)'">Gucci</a>
+      <a href="/marka/chanel" style="font-family:var(--mkz-font-display); font-size:18px; letter-spacing:0.15em; text-transform:uppercase; color:var(--mkz-text-muted); text-decoration:none; font-weight:300; transition:color 0.3s ease;" onmouseover="this.style.color='var(--mkz-text)'" onmouseout="this.style.color='var(--mkz-text-muted)'">Chanel</a>
+      <a href="/marka/celine" style="font-family:var(--mkz-font-display); font-size:18px; letter-spacing:0.15em; text-transform:uppercase; color:var(--mkz-text-muted); text-decoration:none; font-weight:300; transition:color 0.3s ease;" onmouseover="this.style.color='var(--mkz-text)'" onmouseout="this.style.color='var(--mkz-text-muted)'">Céline</a>
+      <a href="/marka/loro-piana" style="font-family:var(--mkz-font-display); font-size:18px; letter-spacing:0.15em; text-transform:uppercase; color:var(--mkz-text-muted); text-decoration:none; font-weight:300; transition:color 0.3s ease;" onmouseover="this.style.color='var(--mkz-text)'" onmouseout="this.style.color='var(--mkz-text-muted)'">Loro Piana</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================================================
+     BLOK 8: NEWSLETTER
+     ================================================ -->
+<section class="mkz-newsletter">
+  <div class="mkz-container" style="max-width:600px;">
+
+    <span class="mkz-label" style="color:var(--mkz-accent); display:block; text-align:center;">Bądź na bieżąco</span>
+
+    <h2>Nowe arrivals co tydzień</h2>
+
+    <p>Twoje miejsce na markowe ubrania z drugiej ręki.<br>Zapisz się i bądź pierwsza.</p>
+
+    <form class="mkz-newsletter-form" onsubmit="return false;">
+      <input type="email" placeholder="Twój adres email">
+      <button type="submit">OK</button>
+    </form>
+
+    <p style="font-size:11px; color:rgba(253,250,247,0.25); margin-top:1rem;">
+      Wysyłamy maksymalnie 1–2 maile tygodniowo. Możesz wypisać się w każdej chwili.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ================================================
+     BLOK 9: STOPKA
+     Wklej ZAMIAST domyślnej stopki WordPress
+     (w Elementor: sekcja Footer Builder)
+     ================================================ -->
+<footer class="site-footer">
+  <div class="mkz-container">
+
+    <div style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:2.5rem; margin-bottom:3rem;">
+
+      <!-- Kolumna 1: Logo + opis -->
+      <div>
+        <h3 style="font-family:var(--mkz-font-display); font-size:22px; font-weight:300; letter-spacing:0.15em; text-transform:uppercase; color:#fdfaf7; margin:0 0 1rem;">Metka z klasą</h3>
+        <p style="font-size:13px; color:rgba(253,250,247,0.5); line-height:1.7; max-width:280px; margin:0 0 1.5rem;">
+          Starannie wyselekcjonowane markowe ubrania z drugiej ręki. Autentyczność gwarantowana.
+        </p>
+        <div style="display:flex; gap:1rem;">
+          <a href="https://instagram.com/" aria-label="Instagram" style="color:rgba(253,250,247,0.4); font-size:18px;">IG</a>
+          <a href="https://facebook.com/" aria-label="Facebook" style="color:rgba(253,250,247,0.4); font-size:18px;">FB</a>
+        </div>
+      </div>
+
+      <!-- Kolumna 2: Sklep -->
+      <div>
+        <h4 class="widget-title">Sklep</h4>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px;">
+          <li><a href="/kobiety">Dla niej</a></li>
+          <li><a href="/mezczyzni">Dla niego</a></li>
+          <li><a href="/nowosci">Nowości</a></li>
+          <li><a href="/marki">Marki</a></li>
+          <li><a href="/akcesoria">Akcesoria</a></li>
+        </ul>
+      </div>
+
+      <!-- Kolumna 3: Pomoc -->
+      <div>
+        <h4 class="widget-title">Pomoc</h4>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px;">
+          <li><a href="/jak-kupowac">Jak kupować</a></li>
+          <li><a href="/jak-sprzedawac">Jak sprzedawać</a></li>
+          <li><a href="/autentycznosc">Autentyczność</a></li>
+          <li><a href="/kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <!-- Kolumna 4: O nas -->
+      <div>
+        <h4 class="widget-title">O nas</h4>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px;">
+          <li><a href="/o-nas">O Metka z klasą</a></li>
+          <li><a href="/polityka-prywatnosci">Polityka prywatności</a></li>
+          <li><a href="/regulamin">Regulamin</a></li>
+          <li><a href="/zwroty">Zwroty i reklamacje</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+      <span>© 2025 Metka z klasą. Wszelkie prawa zastrzeżone.</span>
+      <span>Płatności: Przelewy24 · PayU · BLIK · Visa · Mastercard</span>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ================================================
+     BLOK 10: SKRYPT ANIMACJI (wklej przed </body>)
+     Wygląd → Edytor → footer.php → przed </body>
+     LUB w Elementor: Ustawienia → Własny kod → Footer
+     ================================================ -->
+<script>
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('mkz-visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.mkz-fade-in').forEach(function(el) {
+    observer.observe(el);
+  });
+})();
+</script>
