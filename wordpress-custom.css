@@ -1,0 +1,732 @@
+/*
+ * ================================================
+ *  METKA Z KLASĄ — Gotowy CSS do wklejenia w WordPress
+ *  Wklej w: Wygląd → Dostosuj → Dodatkowy CSS
+ *  lub w Elementor: Ustawienia witryny → CSS własny
+ * ================================================
+ *
+ *  Wymagane czcionki Google Fonts (wklej w <head> lub przez wtyczkę):
+ *  https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap
+ */
+
+
+/* ================================================
+   1. ZMIENNE KOLORYSTYCZNE (cały motyw)
+   ================================================ */
+:root {
+  --mkz-bg:            #f7f3ef;       /* tło główne — ciepły krem */
+  --mkz-bg-dark:       #1a1714;       /* tło ciemnych sekcji */
+  --mkz-text:          #1f1c18;       /* tekst główny */
+  --mkz-text-muted:    #8c8070;       /* tekst drugorzędny */
+  --mkz-accent:        #c49a3c;       /* złoty akcent */
+  --mkz-accent-light:  #e8c97a;       /* złoty jasny */
+  --mkz-border:        #e0d8cf;       /* obramowania */
+  --mkz-cream:         #f0ebe4;       /* sekcje kremowe */
+  --mkz-white:         #fdfaf7;       /* białe karty */
+
+  --mkz-font-display:  'Cormorant Garamond', Georgia, serif;
+  --mkz-font-body:     'Outfit', sans-serif;
+  --mkz-radius:        4px;
+  --mkz-transition:    0.3s ease;
+}
+
+
+/* ================================================
+   2. TYPOGRAFIA GLOBALNA
+   ================================================ */
+body,
+body .entry-content,
+body p {
+  font-family: var(--mkz-font-body);
+  font-weight: 300;
+  color: var(--mkz-text);
+  background-color: var(--mkz-bg);
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+h1, h2, h3, h4, h5, h6,
+.mkz-display {
+  font-family: var(--mkz-font-display);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--mkz-text);
+}
+
+/* Kursywa w nagłówkach — efekt luksusowy */
+h1 em, h2 em, .mkz-display em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* Małe etykiety nad sekcjami (styl UPPERCASE) */
+.mkz-label,
+.mkz-eyebrow {
+  font-family: var(--mkz-font-body);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--mkz-accent);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 12px;
+}
+
+
+/* ================================================
+   3. NAWIGACJA / HEADER
+   ================================================ */
+.site-header,
+#masthead,
+.elementor-nav-menu {
+  background-color: var(--mkz-bg) !important;
+  border-bottom: 1px solid var(--mkz-border);
+  font-family: var(--mkz-font-body);
+}
+
+/* Logo */
+.site-header .site-logo,
+.site-header .custom-logo {
+  font-family: var(--mkz-font-display);
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--mkz-text) !important;
+  text-decoration: none;
+}
+
+/* Menu główne */
+.main-navigation a,
+.nav-menu > li > a,
+.elementor-nav-menu a {
+  font-family: var(--mkz-font-body);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--mkz-text-muted) !important;
+  transition: color var(--mkz-transition);
+  text-decoration: none;
+}
+
+.main-navigation a:hover,
+.nav-menu > li > a:hover {
+  color: var(--mkz-text) !important;
+}
+
+/* Ikony w headerze (koszyk, konto, wyszukiwarka) */
+.site-header .cart-icon,
+.site-header .account-icon {
+  color: var(--mkz-text);
+  transition: color var(--mkz-transition);
+}
+.site-header .cart-icon:hover,
+.site-header .account-icon:hover {
+  color: var(--mkz-accent);
+}
+
+
+/* ================================================
+   4. SEKCJA HERO (pełnoekranowa)
+   ================================================ */
+.mkz-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.mkz-hero .mkz-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Gradient overlay od lewej */
+.mkz-hero .mkz-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(26, 23, 20, 0.75) 0%,
+    rgba(26, 23, 20, 0.40) 50%,
+    transparent 100%
+  );
+}
+
+.mkz-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 8rem 6rem;
+  max-width: 750px;
+}
+
+.mkz-hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--mkz-accent-light);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.mkz-hero h1 {
+  font-family: var(--mkz-font-display);
+  font-size: clamp(52px, 8vw, 100px);
+  font-weight: 300;
+  color: #fdfaf7;
+  line-height: 0.95;
+  margin-bottom: 1.5rem;
+}
+
+.mkz-hero p {
+  font-size: 17px;
+  color: rgba(253, 250, 247, 0.8);
+  font-weight: 300;
+  max-width: 440px;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .mkz-hero-content {
+    padding: 6rem 1.5rem;
+  }
+  .mkz-hero h1 {
+    font-size: 52px;
+  }
+}
+
+
+/* ================================================
+   5. PRZYCISKI
+   ================================================ */
+
+/* Przycisk główny (ciemny) */
+.mkz-btn,
+.mkz-btn-primary,
+.woocommerce .button,
+.woocommerce #respond input#submit {
+  font-family: var(--mkz-font-body);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 14px 32px;
+  background-color: var(--mkz-text);
+  color: var(--mkz-white) !important;
+  border: 1px solid var(--mkz-text);
+  border-radius: var(--mkz-radius);
+  cursor: pointer;
+  transition: all var(--mkz-transition);
+  text-decoration: none;
+  display: inline-block;
+}
+.mkz-btn:hover,
+.mkz-btn-primary:hover,
+.woocommerce .button:hover {
+  background-color: transparent;
+  color: var(--mkz-text) !important;
+}
+
+/* Przycisk konturowy */
+.mkz-btn-outline {
+  background-color: transparent;
+  color: var(--mkz-text) !important;
+  border: 1px solid var(--mkz-border);
+}
+.mkz-btn-outline:hover {
+  border-color: var(--mkz-text);
+  background-color: var(--mkz-text);
+  color: var(--mkz-white) !important;
+}
+
+/* Przycisk złoty (Dodaj do koszyka) */
+.woocommerce .single_add_to_cart_button,
+.mkz-btn-accent {
+  background-color: var(--mkz-accent) !important;
+  border-color: var(--mkz-accent) !important;
+  color: #1f1c18 !important;
+}
+.woocommerce .single_add_to_cart_button:hover,
+.mkz-btn-accent:hover {
+  background-color: var(--mkz-accent-light) !important;
+  border-color: var(--mkz-accent-light) !important;
+}
+
+
+/* ================================================
+   6. KARTY PRODUKTÓW (WooCommerce)
+   ================================================ */
+.woocommerce ul.products li.product,
+.mkz-product-card {
+  font-family: var(--mkz-font-body);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* Zdjęcie produktu */
+.woocommerce ul.products li.product .woocommerce-loop-product__link img,
+.mkz-product-card .mkz-product-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--mkz-radius);
+  transition: transform 0.8s ease;
+}
+.woocommerce ul.products li.product:hover img,
+.mkz-product-card:hover .mkz-product-img {
+  transform: scale(1.04);
+}
+
+/* Kontener zdjęcia — overflow hidden */
+.woocommerce ul.products li.product a.woocommerce-loop-product__link {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--mkz-radius);
+}
+
+/* Nazwa marki (złota etykieta) */
+.mkz-product-brand {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mkz-accent);
+  font-weight: 500;
+  margin-top: 12px;
+  display: block;
+}
+
+/* Nazwa produktu */
+.woocommerce ul.products li.product .woocommerce-loop-product__title,
+.mkz-product-card .mkz-product-name {
+  font-family: var(--mkz-font-display);
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--mkz-text);
+  margin: 4px 0;
+  line-height: 1.2;
+}
+
+/* Ceny */
+.woocommerce ul.products li.product .price,
+.mkz-product-price {
+  font-family: var(--mkz-font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--mkz-text);
+}
+
+/* Przekreślona oryginalna cena */
+.woocommerce ul.products li.product .price del,
+.mkz-product-price del {
+  color: var(--mkz-text-muted);
+  font-weight: 300;
+  margin-left: 6px;
+  font-size: 13px;
+}
+
+/* Badge NOWOŚĆ */
+.mkz-badge-new {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background-color: var(--mkz-accent);
+  color: #1f1c18;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 2px;
+}
+
+/* Siatka produktów — 4 kolumny na desktop */
+.woocommerce ul.products {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 1024px) {
+  .woocommerce ul.products {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .woocommerce ul.products {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+
+/* ================================================
+   7. SIATKA KATEGORII (asymetryczna)
+   ================================================ */
+.mkz-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 280px;
+  gap: 1rem;
+}
+
+.mkz-cat-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--mkz-radius);
+  display: block;
+  text-decoration: none;
+}
+
+/* Duże zdjęcie — zajmuje 7 z 12 kolumn, 2 wiersze */
+.mkz-cat-item.mkz-cat-large {
+  grid-column: span 7;
+  grid-row: span 2;
+}
+.mkz-cat-item.mkz-cat-medium {
+  grid-column: span 5;
+  grid-row: span 1;
+}
+.mkz-cat-item.mkz-cat-small {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+.mkz-cat-item.mkz-cat-xsmall {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+/* Zdjęcie w kategorii */
+.mkz-cat-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+.mkz-cat-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Gradient i tekst na zdjęciu */
+.mkz-cat-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(26, 23, 20, 0.65) 0%,
+    rgba(26, 23, 20, 0.1) 50%,
+    transparent 100%
+  );
+  transition: opacity 0.5s ease;
+}
+
+.mkz-cat-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  color: #fdfaf7;
+}
+
+.mkz-cat-count {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(253, 250, 247, 0.6);
+  display: inline-block;
+  border: 1px solid rgba(253, 250, 247, 0.2);
+  padding: 2px 8px;
+  border-radius: 50px;
+  margin-bottom: 8px;
+}
+
+.mkz-cat-name {
+  font-family: var(--mkz-font-display);
+  font-size: 28px;
+  font-weight: 300;
+  color: #fdfaf7;
+  line-height: 1;
+  margin: 0;
+}
+.mkz-cat-item.mkz-cat-large .mkz-cat-name {
+  font-size: 42px;
+}
+
+@media (max-width: 768px) {
+  .mkz-categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+  }
+  .mkz-cat-item.mkz-cat-large,
+  .mkz-cat-item.mkz-cat-medium,
+  .mkz-cat-item.mkz-cat-small,
+  .mkz-cat-item.mkz-cat-xsmall {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .mkz-cat-item.mkz-cat-large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+
+
+/* ================================================
+   8. SEKCJE OGÓLNE
+   ================================================ */
+
+/* Kontener */
+.mkz-section {
+  padding: 6rem 1.5rem;
+}
+.mkz-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Nagłówek sekcji — wyśrodkowany */
+.mkz-section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.mkz-section-header h2 {
+  font-family: var(--mkz-font-display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300;
+  margin: 0;
+}
+
+/* Sekcja na ciemnym tle */
+.mkz-section-dark {
+  background-color: var(--mkz-bg-dark);
+  color: #fdfaf7;
+}
+.mkz-section-dark h1,
+.mkz-section-dark h2,
+.mkz-section-dark h3,
+.mkz-section-dark p {
+  color: #fdfaf7;
+}
+
+/* Sekcja kremowa */
+.mkz-section-cream {
+  background-color: var(--mkz-cream);
+}
+
+
+/* ================================================
+   9. NEWSLETTER (ciemna sekcja na dole)
+   ================================================ */
+.mkz-newsletter {
+  background-color: var(--mkz-bg-dark);
+  padding: 5rem 1.5rem;
+  text-align: center;
+}
+.mkz-newsletter h2 {
+  font-family: var(--mkz-font-display);
+  font-size: 36px;
+  font-weight: 300;
+  color: #fdfaf7;
+  margin-bottom: 1rem;
+}
+.mkz-newsletter p {
+  color: rgba(253, 250, 247, 0.6);
+  font-size: 14px;
+  margin-bottom: 2rem;
+}
+.mkz-newsletter-form {
+  display: flex;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.mkz-newsletter-form input[type="email"] {
+  flex: 1;
+  background-color: rgba(253, 250, 247, 0.08);
+  border: 1px solid rgba(253, 250, 247, 0.2);
+  border-right: none;
+  padding: 12px 16px;
+  font-family: var(--mkz-font-body);
+  font-size: 13px;
+  color: #fdfaf7;
+  outline: none;
+  border-radius: var(--mkz-radius) 0 0 var(--mkz-radius);
+}
+.mkz-newsletter-form input[type="email"]::placeholder {
+  color: rgba(253, 250, 247, 0.35);
+}
+.mkz-newsletter-form button {
+  background-color: var(--mkz-accent);
+  color: #1f1c18;
+  border: none;
+  padding: 12px 20px;
+  font-family: var(--mkz-font-body);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 0 var(--mkz-radius) var(--mkz-radius) 0;
+  transition: background-color var(--mkz-transition);
+}
+.mkz-newsletter-form button:hover {
+  background-color: var(--mkz-accent-light);
+}
+
+
+/* ================================================
+   10. STRONA PRODUKTU (pojedynczy produkt)
+   ================================================ */
+.woocommerce div.product .product_title {
+  font-family: var(--mkz-font-display);
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 1.1;
+}
+.woocommerce div.product p.price {
+  font-size: 22px;
+  color: var(--mkz-text);
+  font-weight: 500;
+}
+.woocommerce div.product p.price del {
+  color: var(--mkz-text-muted);
+  font-size: 16px;
+  font-weight: 300;
+  margin-left: 8px;
+}
+.woocommerce div.product .woocommerce-product-details__short-description {
+  font-size: 14px;
+  color: var(--mkz-text-muted);
+  font-weight: 300;
+  line-height: 1.7;
+  border-top: 1px solid var(--mkz-border);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Marka (etykieta złota) nad nazwą produktu */
+.mkz-product-brand-label {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--mkz-accent);
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+}
+
+
+/* ================================================
+   11. FOOTER
+   ================================================ */
+.site-footer,
+#colophon {
+  background-color: var(--mkz-bg-dark);
+  color: rgba(253, 250, 247, 0.6);
+  font-family: var(--mkz-font-body);
+  font-weight: 300;
+  font-size: 13px;
+  padding: 4rem 1.5rem 2rem;
+}
+.site-footer a,
+#colophon a {
+  color: rgba(253, 250, 247, 0.6);
+  text-decoration: none;
+  transition: color var(--mkz-transition);
+}
+.site-footer a:hover,
+#colophon a:hover {
+  color: #fdfaf7;
+}
+.site-footer h3,
+.site-footer .widget-title {
+  font-family: var(--mkz-font-body);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(253, 250, 247, 0.4);
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+.site-footer .footer-bottom {
+  border-top: 1px solid rgba(253, 250, 247, 0.1);
+  padding-top: 1.5rem;
+  margin-top: 3rem;
+  font-size: 11px;
+  color: rgba(253, 250, 247, 0.35);
+}
+
+
+/* ================================================
+   12. ANIMACJE WEJŚCIA (przy scrollowaniu)
+   Dodaj klasę .mkz-fade-in do elementów w Elementor
+   lub użyj Elementor Motion Effects zamiast tego
+   ================================================ */
+.mkz-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.mkz-fade-in.mkz-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* JavaScript do animacji — wklej w WordPress → Appearance → Theme File Editor → footer.php przed </body> */
+/*
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('mkz-visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.mkz-fade-in').forEach(el => observer.observe(el));
+</script>
+*/
+
+
+/* ================================================
+   13. LINKI I OGÓLNE POPRAWKI
+   ================================================ */
+a {
+  color: var(--mkz-text);
+  transition: color var(--mkz-transition);
+}
+a:hover {
+  color: var(--mkz-accent);
+}
+
+/* Separator */
+.mkz-divider {
+  height: 1px;
+  background-color: var(--mkz-border);
+  border: none;
+  margin: 3rem 0;
+}
+
+/* Tagi stanu produktu (second-hand) */
+.mkz-condition {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--mkz-border);
+  padding: 3px 10px;
+  border-radius: 50px;
+  color: var(--mkz-text-muted);
+}
+.mkz-condition.mkz-condition-new { border-color: var(--mkz-accent); color: var(--mkz-accent); }
+.mkz-condition.mkz-condition-good { border-color: #6b8c5e; color: #6b8c5e; }
